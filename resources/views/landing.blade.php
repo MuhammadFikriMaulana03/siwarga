@@ -46,6 +46,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SiWarga - {{ $settings['rt_rw_name'] }}</title>
 
+    <meta name="description" content="Portal layanan warga {{ $settings['rt_rw_name'] }} - pengajuan surat online, pengaduan warga, informasi kegiatan, UMKM, dan transparansi kas RT/RW.">
+
+    {{-- Open Graph (preview link saat dishare ke WhatsApp/Facebook/dll) --}}
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SiWarga - {{ $settings['rt_rw_name'] }}">
+    <meta property="og:description" content="Portal layanan warga {{ $settings['rt_rw_name'] }} - surat, pengaduan, kegiatan, UMKM, dan kas RT/RW secara online.">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:locale" content="id_ID">
+    @if (!empty($settings['logo']))
+        <meta property="og:image" content="{{ asset('storage/' . $settings['logo']) }}">
+    @endif
+
+    {{-- Twitter Card --}}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SiWarga - {{ $settings['rt_rw_name'] }}">
+    <meta name="twitter:description" content="Portal layanan warga {{ $settings['rt_rw_name'] }} - surat, pengaduan, kegiatan, UMKM, dan kas RT/RW secara online.">
+
+    <link rel="canonical" href="{{ url()->current() }}">
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     {{-- Leaflet CSS --}}
@@ -760,6 +779,7 @@
                         @if ($kegiatan->gambar)
                             <img src="{{ asset('storage/' . $kegiatan->gambar) }}"
                                  alt="{{ $kegiatan->judul }}"
+                                 loading="lazy"
                                  class="w-full h-48 object-cover">
                         @else
                             <div class="h-48 bg-indigo-50 flex items-center justify-center text-indigo-600 font-extrabold">
@@ -814,6 +834,7 @@
                         @if ($umkm->foto)
                             <img src="{{ asset('storage/' . $umkm->foto) }}"
                                  alt="{{ $umkm->nama_usaha }}"
+                                 loading="lazy"
                                  class="w-full h-48 object-cover">
                         @else
                             <div class="h-48 bg-emerald-50 flex items-center justify-center text-emerald-600 font-extrabold">
@@ -971,6 +992,7 @@
                         @if ($pengumuman->gambar)
                             <img src="{{ asset('storage/' . $pengumuman->gambar) }}"
                                  alt="{{ $pengumuman->judul }}"
+                                 loading="lazy"
                                  class="w-full h-48 object-cover">
                         @else
                             <div class="h-48 bg-indigo-50 flex items-center justify-center text-indigo-600 font-extrabold">
