@@ -29,6 +29,7 @@ use App\Http\Controllers\KartuKeluargaController;
 use App\Http\Controllers\KasTransaksiController;
 use App\Http\Controllers\IuranWargaController;
 use App\Http\Controllers\MyProfileController;
+use App\Http\Controllers\InventarisController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -151,6 +152,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/iuran-wargas-export', [IuranWargaController::class, 'export'])
         ->name('iuran-wargas.export');
         Route::resource('iuran-wargas', IuranWargaController::class);
+        Route::resource('inventaris', InventarisController::class);
+
     });
 
     Route::middleware(['auth', 'role:ketua_rt'])->prefix('rt')->name('rt.')->group(function () {

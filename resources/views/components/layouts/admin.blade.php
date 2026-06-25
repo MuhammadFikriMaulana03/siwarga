@@ -245,6 +245,34 @@
                 </a>
             </div>
 
+            {{-- Inventaris --}}
+<div class="mb-4">
+    <p class="px-3 py-2 text-[10px] font-bold text-slate-500 uppercase tracking-wider">
+        Inventaris
+    </p>
+
+    <a href="{{ route('admin.inventaris.index') }}"
+       class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-semibold transition-all duration-200 group
+       {{ request()->routeIs('admin.inventaris.*')
+            ? 'bg-gradient-to-r from-indigo-600 to-purple-700 text-white shadow-lg shadow-indigo-500/25'
+            : 'hover:bg-slate-800/70 text-slate-300 hover:text-white' }}">
+
+        <svg class="w-5 h-5"
+             fill="none"
+             stroke="currentColor"
+             viewBox="0 0 24 24">
+
+            <path stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M20 7L12 3L4 7M20 7L12 11M20 7V17L12 21M4 7L12 11M4 7V17L12 21M12 11V21"/>
+        </svg>
+
+        <span>Inventaris RW</span>
+
+    </a>
+</div>
+
             {{-- Konten --}}
             <div class="mb-4">
                 <p class="px-3 py-2 text-[10px] font-bold text-slate-500 uppercase tracking-wider">Konten</p>

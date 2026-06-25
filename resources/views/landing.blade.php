@@ -1088,6 +1088,62 @@
         </div>
     </section>
 
+    {{-- FAQ --}}
+<section id="faq" class="py-14 sm:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="mb-10 text-center" data-animate>
+            <p class="text-sm font-bold text-indigo-600">FAQ</p>
+            <h2 class="text-2xl sm:text-4xl font-extrabold theme-text mt-2">
+                Pertanyaan yang Sering Ditanyakan
+            </h2>
+            <p class="theme-soft mt-3">
+                Hal-hal yang biasanya warga tanyakan sebelum mengajukan layanan.
+            </p>
+        </div>
+
+        <div class="space-y-3" data-animate>
+            @php
+                $faqList = [
+                    [
+                        'q' => 'Berapa lama proses pengajuan surat?',
+                        'a' => 'Umumnya 1-3 hari kerja, tergantung jenis surat dan kelengkapan data. Status pengajuan bisa dipantau melalui menu Cek Aduan/status layanan.',
+                    ],
+                    [
+                        'q' => 'Apakah harus datang langsung ke sekretariat?',
+                        'a' => 'Tidak. Pengajuan surat dan pengaduan bisa dilakukan online lewat website ini. Kamu hanya perlu datang langsung jika diminta verifikasi dokumen asli oleh pengurus.',
+                    ],
+                    [
+                        'q' => 'Bagaimana cara melacak status pengaduan saya?',
+                        'a' => 'Setelah mengirim pengaduan, kamu akan mendapatkan kode tracking. Gunakan kode tersebut di halaman "Cek Aduan" untuk melihat status terbaru.',
+                    ],
+                    [
+                        'q' => 'Apakah data kas RT/RW transparan untuk semua warga?',
+                        'a' => 'Ya, ringkasan kas masuk, kas keluar, dan transaksi terbaru dapat dilihat oleh semua warga di section Transparansi Kas pada halaman ini.',
+                    ],
+                    [
+                        'q' => 'Bagaimana cara mendaftarkan UMKM saya di halaman ini?',
+                        'a' => 'Hubungi pengurus RT/RW setempat melalui WhatsApp pada bagian Kontak Pengurus untuk didaftarkan ke dalam sistem.',
+                    ],
+                ];
+            @endphp
+
+            @foreach ($faqList as $i => $faq)
+                <details class="theme-card rounded-2xl p-5 group">
+                    <summary class="flex items-center justify-between cursor-pointer font-bold theme-text list-none">
+                        <span>{{ $faq['q'] }}</span>
+                        <span class="ml-4 flex-shrink-0 w-7 h-7 rounded-full theme-bg-soft flex items-center justify-center text-sm font-black transition-transform group-open:rotate-45">
+                            +
+                        </span>
+                    </summary>
+                    <p class="theme-soft text-sm mt-3 leading-relaxed">
+                        {{ $faq['a'] }}
+                    </p>
+                </details>
+            @endforeach
+        </div>
+    </div>
+</section>
+
     {{-- Footer (selalu gelap) --}}
     <footer class="border-t border-white/10 text-white py-8 always-dark" style="background: var(--bg-footer);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
